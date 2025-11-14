@@ -42,4 +42,16 @@ class DetailLokasiMasukProduk(models.Model):
     gudang_awal = models.CharField(max_length=200,blank=True,null=True)
     lokasi_produk = models.CharField(max_length=200,blank=True,null=True) # ada mekanisme buat detail lokasi gudang di tabel stok untuk menunjukan lokasi penyimpanan barang
     
-  
+
+class SJMasukRetur(models.Model):
+    no_SJM_reutr = models.CharField(max_length=200,blank=True,null=True)
+    no_nota_retur = models.CharField(max_length=200,blank=True,null=True)
+    no_kendaraan = models.CharField(max_length=200,blank=True,null=True)
+    nama_pembawa = models.CharField(max_length=200,blank=True,null=True)
+    waktu_masuk = models.DateTimeField(auto_now=False,blank=True,null=True)
+    gudang_cabang = models.CharField(max_length=200,blank=True,null=True)
+    nama_penerima = models.CharField(max_length=200,blank=True,null=True)
+    jenis_sj_masuk = models.CharField(max_length=200,blank=True,null=True)
+    foto_notasj = models.ImageField(null=True,blank=True, upload_to="sjmasuk_img/")
+    foto_bongkar = models.ImageField(null=True,blank=True, upload_to="sjmasuk_img/")
+    status_confirmasi = models.BooleanField(blank=True,null=True)

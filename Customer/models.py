@@ -27,6 +27,9 @@ class RegisteredCustomer(models.Model):
     kategori_outlet = models.CharField(max_length=200,blank=True,null=True,choices=c.choice_kategori_outlet) #menentukan jenis konsumen 2W,4W,6W,2W4W,4W6W,2W6W,2W4W6W,pabrik,tambang,alat berat,subcon,crusher,kapal tangker,kapal nelayan,pembangkit,PO Bus,trucking,transportir,perkebunan,peternakan,pengolahan
     level_outlet = models.CharField(max_length=200,blank=True,null=True,choices=c.choice_level_outlet) #ini adalah level konsumen kecil,besar,sedang atau sangat besar
     tipe_outlet = models.CharField(max_length=200,blank=True,null=True,choices=c.choice_tipe_outlet)
+    # pic_dms = models.CharField(max_length=200,blank=True,null=True)
+    # rute_dms = models.CharField(max_length=200,blank=True,null=True)
+    # frekuensi_dms = models.CharField(max_length=200,blank=True,null=True)
         #ini adalah tipe bisnis outlet Kelilingan, Toko, Bengkel, SPBU, Industry, KAM, ATPM, Bengkel Own Channel
         #Kelilingan, Toko, Bengkel, SPBU, ATPM, Bengkel Own Channel = Outlet Retail, Industry = Outlet Industry, KAM = Outlet KAM
     bentuk_usaha_outlet = models.CharField(max_length=200,blank=True,null=True,choices=c.choice_bentuk_usaha_outlet)
@@ -75,9 +78,10 @@ class RegisteredCustomer(models.Model):
 class LoyaltyPointCustomer(models.Model):
     kode_outlet = models.CharField(max_length=200,blank=True,null=True) #ini adalah kode outlet buat pivot data pemilik point
     tipe_transaksi = models.CharField(max_length=200,blank=True,null=True) #ini adalah tipe transaksi loyalty, redeem berarti 'keluar', dapat point berarti 'masuk'
-    loyalty_point = models.IntegerField(null=True,blank=True) #ini adalah jumlah loyalty point dalam transaksi baik keluar maupun masuk
+    loyalty_point = models.IntegerField(null=True,blank=True) #ini adalah jumlah loyalty point dalam transaksi baik keluar maupun masuk 5perak dari setiap transaksi
     timestamp = models.DateTimeField(auto_now=True) #ini adalah timestamp dari transaksi di outlet
     loyalty_transaction_id = models.CharField(max_length=200,blank=True,null=True) #ini adalah unik code buat mencatat setiap transaksi loyalty point
+    loyalty_heart = models.CharField(max_length=200,blank=True,null=True) #ini 
 
 
 class DataPotensiCustomer(models.Model):
@@ -138,15 +142,23 @@ class DailyRegisteredCustomerReport(models.Model):
 #Ini jenis promo kompleks customized per customer dengan memberi mereka target kontrak
 class KontrakOutletPromotion(models.Model):
     nama_promo = models.CharField(max_length=200,blank=True,null=True) #ini adalah nama kontrak promo yang dibuat
-    tipe_promo = models.CharField(max_length=200,blank=True,null=True,choices=c.choice_tipe_promo) #ini adalah jenis promo single produk atau kategorial (single produk,by merek,by submerek,by tiersegmen,by usersegmen,by kategori,by klasifikasi,by spek,by produsen,by jenis,all produk)
-    yang_dipromokan = models.CharField(max_length=200,blank=True,null=True) #ini adalah yang dipromokan, jika single produk maka choice = kode_produk, jika kategorial maka choice = tergantung kategorinya (cek kategorization di Produk.Model)
     kode_outlet = models.CharField(max_length=200,blank=True,null=True) #ini adalah kode outlet yang ikut kontrak ini
+    data_keikutsertaan = models.ImageField(null=True,blank=True,upload_to='kontrak_outlet/data_keikutsertaan')
     status_promo = models.BooleanField(default=False) #ini adalah status apakah promo masih aktif atau sudah selesai
-    deskripsi_promo = models.CharField(max_length=200,blank=True,null=True) #ini adalah teknis penjelasan promo
     target_promo = models.CharField(max_length=200,blank=True,null=True) #ini adalah target promo dalam liter/rupiah tergantung ketentuan
     dimulai_tanggal = models.DateField(auto_now=False,blank=True,null=True) #ini adalah periode promo dimulai
     berakhir_tanggal= models.DateField(auto_now=False,blank=True,null=True) #ini adalah periode promo berakhir
-    
+
+class DaftarPromosiBerjalan(models.Model):
+    nama_promo = models.CharField(max_length=200,blank=True,null=True) #ini adalah nama kontrak promo yang dibuat
+    tipe_promo = models.CharField(max_length=200,blank=True,null=True,) #ini adalah jenis promo single produk atau kategorial (single produk,by merek,by submerek,by tiersegmen,by usersegmen,by kategori,by klasifikasi,by spek,by produsen,by jenis,all produk)
+    pembuat_promo = models.CharField(max_length=200,blank=True,null=True,)
+    deskripsi_promo = models.CharField(max_length=200,blank=True,null=True) #ini adalah teknis penjelasan promo
+    yang_dipromokan = models.CharField(max_length=200,blank=True,null=True) #ini adalah yang dipromokan, jika single produk maka choice = kode_produk, jika kategorial maka choice = tergantung kategorinya (cek kategorization di Produk.Model)
+    wajib_upload_tidak = models.BooleanField(default=False)
+    alias_promo = models.CharField(max_length=10,blank=True,null=True) # miring italic fontnya ukuran 8
+
+
 class Prompt(models.Model):
     prompt_id = models.CharField(max_length=200,null=True,blank=True)
     prompt_name = models.CharField(max_length=200,null=True,blank=True)

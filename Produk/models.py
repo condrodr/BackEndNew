@@ -12,7 +12,8 @@ class Produk(models.Model):
     photo_produk_3 = models.ImageField(null=True,blank=True,default="blackdwarf.jpg",upload_to="produk_img_3/") #ini adalah foto ketiga produk tampak lain
     photo_produk_4 = models.ImageField(null=True,blank=True,default="blackdwarf.jpg",upload_to="produk_img_4/") #ini adalah foto keempat produk tampak lain
     kemasan_produk = models.CharField(max_length=200,blank=True,null=True,choices=c.choice_kemasan) #ini adalah jenis kemasan produk seperti dus atau drum
-    isi_per_pack = models.IntegerField(null=True,blank=True,choices=c.choice_isi_pack) #ini adalah jumlah isi produk dalam 1 pack
+    isi_per_pack = models.IntegerField(null=True,blank=True,choices=c.choice_isi_pack) #ini adalah jumlah isi produk dalam 1 pack    #1Palet ada berapa pack/dus Tambah dus_per_palet
+    dus_per_palet = models.IntegerField(null=True,blank=True)
     volume_per_pcs = models.FloatField(null=True,blank=True,choices=c.choice_volume_pcs) #ini adalah volume produk per pcs atau berat per pack untuk non liquid
     #AI generated
     deskripsi_produk = models.TextField(max_length=400,blank=True,null=True) #ini adalah deskripsi produk yang bisa digenerate dengan AI untuk SEO
@@ -35,7 +36,7 @@ class Produk(models.Model):
     timestamp = models.DateTimeField(auto_now=True) #ini adalah waktu data ini dibuat atau diupdate
     divisi_kantor = models.CharField(max_length=200,blank=True,null=True,choices=c.choice_divisi_kantor) #ini adalah divisi kantor mana yang menggunakan applikasi ini
     perusahaan_kantor = models.CharField(max_length=200,blank=True,null=True,choices=c.choice_perusahaan_kantor) #ini adalah nama PT yang menggunakan applikasi ini, pertamina dengan gelora dan non pertamina dengan portalindo atau lain
-    
+    # tambahan Dimensi produk. 20 Mei
 
 #Ini digunakan untuk Promosi Internal di Perusahaan (Jenis Promosi yang bisa dilakukan dengan ini adalah FlashSale sell in Spesifik Produk)
 #Ini jenis promo simple yang kita state produk A dipromo kan dan berlaku untuk semua outlet
@@ -48,4 +49,6 @@ class ProdukPromotion(models.Model):
     diskon_promo = models.CharField(max_length=200,blank=True,null=True) #ini adalah harga maximal promo/max diskon untuk jenis flashsale atau cost ratio reward untuk jenis kontrak
     dimulai_tanggal = models.DateField(auto_now=False,blank=True,null=True) #ini adalah periode promo dimulai
     berakhir_tanggal= models.DateField(auto_now=False,blank=True,null=True) #ini adalah periode promo berakhir
+
+ 
     

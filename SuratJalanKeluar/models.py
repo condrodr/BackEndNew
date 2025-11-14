@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 class SJKeluar(models.Model):
     no_nota_keluar = models.CharField(max_length=200,blank=True,null=True) #bukan nota jual karena keluar barang belum tentu jualan
-    no_SJ_keluar = models.CharField(max_length=200,blank=True,null=True)
+    no_SJ_keluar = models.CharField(max_length=200,blank=True,null=True) 
     no_kendaraan = models.CharField(max_length=200,blank=True,null=True)
     nama_pengirim = models.CharField(max_length=200,blank=True,null=True)
     timestamp = models.DateTimeField(auto_now=False,blank=True,null=True)

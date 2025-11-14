@@ -353,7 +353,8 @@ choice_jenis_penjualan = [
     ('Purchase Order','Purchase Order'),
     ('Tokopedia','Tokopedia'),
     ('Blibli','Blibli'),
-    ('Power','Power')
+    ('Power','Power'),
+    ('Pembelian di Kantor','Pembelian di Kantor')
 ]
 
 choice_detail_lokasi = [
@@ -366,6 +367,7 @@ choice_detail_lokasi = [
 choice_faktur = [
     ('Print Faktur','Print Faktur'),
     ('Faktur tidak Print','Faktur tidak Print'),
+    ('Tanpa Faktur','Tanpa Faktur'),
     ('Gunggung','Gunggung'),
     ('Offline Req Gunggung','Offline Req Gunggung')
 ]
@@ -397,6 +399,7 @@ choice_nama_salesman = [
     ('Sales Jogja Barat Laut','Sales Jogja Barat Laut'),
     ('Sales Jogja Tenggara','Sales Jogja Tenggara'),
     ('Sales Jogja Timur Laut','Sales Jogja Timur Laut'),
+    ('Sales Jogja Kota','Sales Jogja Kota'),
     ('Kantor DIY','Kantor DIY'),
     ('Kantor Cikebu','Kantor Cikebu'),
     ('Kantor Babawopa','Kantor Babawopa'),
@@ -404,7 +407,7 @@ choice_nama_salesman = [
     ('Sales Industry Barat','Sales Industry Barat'),
     ('Sales Industry Timur','Sales Industry Timur'),
     ('Sales Industry Tengah','Sales Industry Tengah'),
-    ('Sales Klaten','Sales Klaten') ] 
+     ] 
 
 choice_produsen = [
     ('Pertamina', 'Pertamina'), ('Exxon Federal', 'Exxon Federal'), ('Honda AHM', 'Honda AHM'), 
@@ -425,3 +428,274 @@ choice_debit_kredit = [
     ('debit','debit'),
     ('kredit','kredit')
 ]
+
+choice_tipe_akun = [
+    ('Aset', 'Aset'),
+    ('Hutang', 'Hutang'),
+    ('Modal', 'Pendapatan'),
+    ('Pengeluaran', 'Pengeluaran')
+]
+
+choice_lokasi_kas = [
+    ('BCA 0963024441','BCA 0963024441'), 
+    ('BCA 0969003777','BCA 0969003777'),
+    ('MANDIRI 1390009064423','MANDIRI 1390009064423'),
+    ('MANDIRI 1370013051525','MANDIRI 1370013051525'),
+    ('MANDIRI 1800004861086','MANDIRI 1800004861086'),
+    ('MANDIRI 1800100827023','MANDIRI 1800100827023'),
+    ('BRI 010601001118309','BRI 010601001118309'),
+    ('Kas Pusat','Kas Pusat'),
+    ('Kas DIY','Kas DIY'),
+    ('Kas Purwokerto','Kas Purwokerto'),
+    ('Kas Magelang','Kas Magelang'),
+    ('Kas Kebumen','Kas Kebumen'),
+    ('Kas Wonosobo','Kas Wonosobo'),
+    ('Kas Klaten','Kas Klaten'),
+    ('Kas Cilacap','Kas Cilacap'),
+    ('Kas Purworejo','Kas Purworejo'),
+    ('Kas Doku','Kas Doku')
+]
+
+choice_kategori_action = [
+    ('Aset', 'Aset'),
+    ('Hutang', 'Hutang'),
+    ('Modal', 'Modal'),
+    ('Pengeluaran', 'Pengeluaran'),
+    ('Pendapatan', 'Pendapatan'),
+    ('Biaya','Biaya')
+]
+
+choice_jenis_transaksi = [
+    ('Terima Hutangan dari Bank','Terima Hutangan dari Bank'),
+    ('Bayar Hutang ke Bank','Bayar Hutang ke Bank'),
+    ('Pengeluaran Biaya','Pengeluaran Biaya'),
+    ('Pengeluaran Pajak','Pengeluaran Pajak'),
+    ('Terima Hutangan dari Owner','Terima Hutangan dari Owner'),
+    ('Bayar Hutang ke Owner','Bayar Hutang ke Owner'),
+    ('Beli Asset Kendaraan','Beli Asset Kendaraan'),
+    ('Beli Asset Elektronik','Beli Asset Elektronik'),
+    ('Prive ke Owner','Prive ke Owner'),
+    ('Beli Asset Tanah','Beli Asset Tanah'),
+    ('Beli Asset Bangunan','Beli Asset Bangunan'),
+    ('Penjualan Asset','Penjualan Asset'),
+    #Jual Asset belum ada, Jurnal Beli Investasi dan Jual (PPN seperti apa)
+]
+
+choice_biaya = [
+    'biaya solar', #ops kirim
+    'biaya bensin', #ops kirim
+    'biaya HSK supir', #ops kirim
+    'biaya kiriman motor', #ops kirim
+    'biaya admin tebusan', #ops kirim
+    'biaya bongkar muat', #ops kirim
+    'biaya operasional gudang', #ops kirim
+    'biaya kiriman expedisi', #ops kirim
+    'biaya kiriman tak terduga', #ops kirim
+    'biaya administrasi bunga bank', #ops kantor
+    'biaya administrasi bank harian', #ops kantor
+    'biaya ATK', #ops kantor
+    'biaya uang catering makan kantor', #ops kantor
+    'biaya percetakan', #ops kantor
+    'biaya umum', #ops kantor
+    'biaya fax dan foto copy', #ops kantor
+    'biaya HSK admin', #ops kantor
+    'biaya perbaikan perangkat lunak', #ops kantor
+    'biaya iuran', #ops kantor
+    'biaya listrik', #ops kantor
+    'biaya maintenance', #ops kantor
+    'biaya perawatan peralatan kantor', #ops kantor
+    'biaya pembelian materai', #ops kantor
+    'biaya pengiriman paket dan surat menyurat', #ops kantor
+    'biaya PDAM', #ops kantor
+    'biaya prive', #ops kantor
+    'biaya pulsa CS', #ops kantor
+    'biaya pulsa kantor', #ops kantor 
+    'biaya internet', #ops kantor
+    'biaya tagihan telepon', #ops kantor
+    'biaya BPJS', #gaji
+    'biaya uang cuti', #gaji
+    'biaya fee transaksi', #gaji
+    'biaya gaji karyawan', #gaji
+    'biaya honorarium', #gaji
+    'biaya reward karyawan', #gaji
+    'biaya lembur', #gaji
+    'biaya upah pekerja paruh waktu', #gaji
+    'biaya jaminan sosial lain', #gaji
+    'biaya operasional manager', #ops sales
+    'biaya operasional salesman', #ops sales
+    'biaya operasional supervisor', #ops sales
+    'biaya pulsa salesman', #ops sales
+    'biaya ban kendaraan', #perawatan kendaraan
+    'biaya KIR kendaraan', #perawatan kendaraan
+    'biaya perbaikan viar', #perawatan kendaraan
+    'biaya servis dan ganti oli', #perawatan kendaraan
+    'biaya sparepart kendaraan', #perawatan kendaraan
+    'biaya perbaikan truk', #perawatan kendaraan
+    'biaya terpal', #perawatan kendaraan
+    'biaya pemeliharaan gedung', #perawatan kantor
+    'biaya perjalanan dinas manager', #biaya perjalanan
+    'biaya perjalanan umum', #biaya perjalanan
+    'biaya handling', #ops kirim
+    'biaya buy back', #promosi
+    'biaya cash back', #promosi
+    'biaya event promo', #promosi
+    'biaya ongkir kapal', #ops kirim
+    'biaya promosi', #promosi
+    'biaya tak terduga', #promosi
+    'biaya asuransi gudang', #asuransi
+    'biaya asuransi kendaraan', #asuransi
+    'biaya asuransi lain-lain', #asuransi
+    'biaya sewa', #ops kantor 
+    'biaya pengadaan merchandise', #promosi
+    'biaya pengadaan seragam', #ops kantor
+    'Pengeluaran PPH Pasal 21', #pajak
+    'Pengeluaran PPH Pasal 25', #pajak
+    'Pengeluaran PPH Pasal 29', #pajak
+    'Pengeluaran PPH Pasal 22', #pajak
+    'Pengeluaran PPH Pasal 23', #pajak
+    'Pengeluaran PPH Sewa', #pajak
+    'Pengeluaran PPN KMS', #pajak
+    'Pengeluraran PPN',
+    'Pengeluaran Pajak Deviden', #pajak
+    'Pengeluaran Pajak Bumi dan Bangunan', #pajak
+    'Pengeluaran PPH Badan Pasal 17', #pajak
+    'Pengeluaran Pajak Kendaraan Bermotor', #pajak
+    'beli kendaraan',
+    'beli peralatan elektronik',
+    'beli tanah',
+    'beli bangunan',
+    'Terima Pokok Hutangan Owner',
+    'Bayar Pokok Hutang ke Owner',
+    'Terima Pokok Hutangan Bank',
+    'Bayar Pokok Hutang ke Bank',
+    'setor ke BCA',
+    'setor ke Mandiri',
+    'setor ke Kas Pusat',
+    'setor ke BRI',
+    'setor ke Niaga',
+    'Lain-Lain'
+]
+
+choice_bentuk_kas = [
+    ('Bank Mandiri','Bank Mandiri'), 
+    ('Bank BCA','Bank BCA'),
+    ('Bank BRI','Bank BRI'),
+    ('Bank Niaga','Bank Niaga'),
+    ('Kas Tunai','Kas Tunai')
+]
+
+choice_jenis_lokasi = [
+    ('Gudang Pcs','Gudang Pcs'), 
+    ('Gudang Dus','Gudang Dus'),
+    ('Gudang Palet','Gudang Palet')
+]
+
+choice_jenis_bg = [
+    ('Bank Mandiri','Bank Mandiri'), 
+    ('Bank BCA','Bank BCA'),
+    ('Jasa','Jasa'),
+    ('Bank BNI','Bank BNI'),
+    ('Bank BRI','Bank BRI'),
+    ('Bank Niaga','Bank Niaga'),
+    ('Bank Permata','Bank Permata'),
+    ('Lain-Lain','Lain-Lain'),
+]
+choice_penyimpanan_bg = [
+    ('Cilacap','Cilacap'), 
+    ('Jogja','Jogja'),
+    ('Purwokerto','Purwokerto'),
+    ('Magelang','Magelang'),
+    ('Wonosobo','Wonosobo'),
+    ('Klaten','Klaten'),
+    ('Kebumen','Kebumen'),
+    ('Purworejo','Purworejo'),
+]
+choice_kantor_cabang = [
+    ('Cilacap','Cilacap'), 
+    ('Jogja','Jogja'),
+    ('Purwokerto','Purwokerto'),
+    ('Magelang','Magelang'),
+    ('Wonosobo','Wonosobo'),
+    ('Klaten','Klaten'),
+    ('Kebumen','Kebumen'),
+    ('Purworejo','Purworejo'),
+]
+choice_macam_kas= [
+    ('Bank Mandiri','Bank Mandiri'), 
+    ('Bank BCA','Bank BCA'),
+    ('Bank BRI','Bank BRI'),
+    ('Bank Niaga','Bank Niaga'),
+    ('Kas Tunai','Kas Tunai'),
+    ('Kas Pusat','Kas Pusat'),
+    ('Kas DIY','Kas DIY'),
+    ('Kas Purwokerto','Kas Purwokerto'),
+    ('Kas Magelang','Kas Magelang'),
+    ('Kas Kebumen','Kas Kebumen'),
+    ('Kas Wonosobo','Kas Wonosobo'),
+    ('Kas Klaten','Kas Klaten'),
+    ('Kas Cilacap','Kas Cilacap'),
+    ('Kas Purworejo','Kas Purworejo'),
+    # ('Kas Di Sales','Kas Di Sales'),
+    # ('Kas Di Sales Cilacap Barat','Kas Di Sales Cilacap Barat'),
+    ('Sales Cilacap Barat','Sales Cilacap Barat'),
+    ('Sales Cilacap Timur','Sales Cilacap Timur'),
+    ('Sales Kebumen ','Sales Kebumen'),
+    ('Sales Wonosobo','Sales Wonosobo'),
+    ('Sales Banjarnegara Purbalingga','Sales Banjarnegara Purbalingga'),
+    ('Sales Banyumas','Sales Banyumas'),
+    ('Sales Magelang','Sales Magelang'),
+    ('Sales Purworejo','Sales Purworejo'),
+    ('Sales Jogja Barat Daya','Sales Jogja Barat Daya'),
+    ('Sales Jogja Barat Laut','Sales Jogja Barat Laut'),
+    ('Sales Jogja Tenggara','Sales Jogja Tenggara'),
+    ('Sales Jogja Timur Laut','Sales Jogja Timur Laut'),
+    ('Sales Jogja Kota','Sales Jogja Kota'),
+    ('Sales Industry Barat','Sales Industry Barat'),
+    ('Sales Industry Timur','Sales Industry Timur'),
+    ('Sales Industry Tengah','Sales Industry Tengah'),
+]
+
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
+
+@api_view(['GET'])
+def get_all_choices(request):
+    data = {
+        "kategori_outlet": [val for val, _ in choice_kategori_outlet],
+        "kategori": [val for val, _ in choice_kategori],
+        "cluster_outlet": [val for val, _ in choice_cluster_outlet],
+        "detail_lokasi": [val for val, _ in choice_detail_lokasi],
+        "divisi_kantor": [val for val, _ in choice_divisi_kantor],
+        "faktur": [val for val, _ in choice_faktur],
+        "isi_pack": [val for val, _ in choice_isi_pack],
+        "perusahaan_kantor": [val for val, _ in choice_perusahaan_kantor],
+        "jenis": [val for val, _ in choice_jenis],
+        "jenis_penjualan": [val for val, _ in choice_jenis_penjualan],
+        "merek": [val for val, _ in choice_merek],
+        "produsen": [val for val, _ in choice_produsen],
+        "kemasan": [val for val, _ in choice_kemasan],
+        "nama_salesman": [val for val, _ in choice_nama_salesman],
+        "level_outlet": [val for val, _ in choice_level_outlet],
+        "oli_dominan": [val for val, _ in choice_oli_dominan],
+        "submerek": [val for val, _ in choice_submerek],
+        "tier": [val for val, _ in choice_tier],
+        "klasifikasi": [val for val, _ in choice_klasifikasi],
+        "rute_kunjungan": [val for val, _ in choice_rute_kunjungan],
+        "volume_pcs": [val for val, _ in choice_volume_pcs],
+        "tipe_lokasi_outlet": [val for val, _ in choice_tipe_lokasi_outlet],
+        "debit_kredit": [val for val, _ in choice_debit_kredit],
+        "tipe_akun": [val for val, _ in choice_tipe_akun],
+        "kategori_action": [val for val, _ in choice_kategori_action],
+        "lokasi_kas": [val for val, _ in choice_lokasi_kas],
+        "bentuk_kas": [val for val, _ in choice_bentuk_kas],
+        "jenis_transaksi": [val for val, _ in choice_jenis_transaksi],
+        "jenis_bg": [val for val, _ in choice_jenis_bg],
+        "penyimpanan_bg": [val for val, _ in choice_penyimpanan_bg],
+        "kantor_cabang": [val for val, _ in choice_kantor_cabang],
+        "macam_kas": [val for val, _ in choice_macam_kas],
+        "biaya": choice_biaya
+        # bisa tambah lagi pilihan lainnya di sini
+    }
+    return Response(data)
+

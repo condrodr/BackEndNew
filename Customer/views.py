@@ -1,8 +1,8 @@
 from django.shortcuts import render
-from Customer.serializers import RegisteredCustomerSerializer, LoyaltyPointCustomerSerializer, DataPotensiCustomerSerializer, DailyRegisteredCustomerReportSerializer, KontrakOutletPromotionSerializer
+from Customer.serializers import RegisteredCustomerSerializer, LoyaltyPointCustomerSerializer, DataPotensiCustomerSerializer, DailyRegisteredCustomerReportSerializer, KontrakOutletPromotionSerializer, DaftarPromosiBerjalanSerializer
 from rest_framework import viewsets
 from django_filters import rest_framework as filters
-from Customer.models import RegisteredCustomer, LoyaltyPointCustomer, DataPotensiCustomer, DailyRegisteredCustomerReport, KontrakOutletPromotion
+from Customer.models import RegisteredCustomer, LoyaltyPointCustomer, DataPotensiCustomer, DailyRegisteredCustomerReport, KontrakOutletPromotion, DaftarPromosiBerjalan
 # Create your views here.
 class RegisteredCustomerFilter(filters.FilterSet):
     timestamp = filters.DateTimeFromToRangeFilter()
@@ -57,3 +57,17 @@ class DailyRegisteredCustomerReportView(viewsets.ModelViewSet):
 class KontrakOutletPromotionView(viewsets.ModelViewSet):
     queryset = KontrakOutletPromotion.objects.all()
     serializer_class = KontrakOutletPromotionSerializer
+
+class DaftarPromosiBerjalanFilter(filters.FilterSet):
+    tanggal_nota = filters.DateFromToRangeFilter()
+    jatuh_tempo_nota = filters.DateFromToRangeFilter()
+   
+    class Meta:
+        model = DaftarPromosiBerjalan
+        fields = ['nama_promo','tipe_promo','pembuat_promo','alias_promo' 
+        ]
+class DaftarPromosiBerjalanView(viewsets.ModelViewSet):
+    queryset = DaftarPromosiBerjalan.objects.all()
+    serializer_class = DaftarPromosiBerjalanSerializer
+    filter_backends = [filters.DjangoFilterBackend]
+    filterset_class = DaftarPromosiBerjalanFilter

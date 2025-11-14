@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from LedgerKas.models import Kas, MasterAkun, TabelNeracaAwal, JurnalEntry
+from LedgerKas.models import Kas, MasterAkun, JournalEntry, JournalEntryLine
 
 class KasSerializer(serializers.ModelSerializer):
     class Meta:
@@ -26,26 +26,53 @@ class MasterAkunSerializer(serializers.ModelSerializer):
             'sub_kategori'
         )
 
-class TabelNeracaAwalSerializer(serializers.ModelSerializer):
+# class TabelNeracaAwalSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = TabelNeracaAwal
+#         fields = (
+#             'kode_akun',
+#             'nama_akun',
+#             'kategori',
+#             'jenis_data',
+#             'saldo_awal'
+#         )
+
+# class JurnalEntrySerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = JurnalEntry
+#         fields = (
+#             'keterangan',
+#             'debit_kredit',
+#             'nama_akun',
+#             'kode_akun',
+#             'kategori',
+#             'sub_kategori',
+#             'nominal',
+#         )
+
+class JournalEntrySerializer(serializers.ModelSerializer):
     class Meta:
-        model = TabelNeracaAwal
+        model = JournalEntry
         fields = (
-            'kode_akun',
-            'nama_akun',
-            'kategori',
-            'jenis_data',
-            'saldo_awal'
+            'id',
+            'kategori_action',
+            'detaildeskripsi',
+            'timestamp',
+            'kode_entry',
+            'validitas'
         )
 
-class JurnalEntrySerializer(serializers.ModelSerializer):
+
+class JournalEntryLineSerializer(serializers.ModelSerializer):
     class Meta:
-        model = JurnalEntry
+        model = JournalEntryLine
         fields = (
-            'keterangan',
-            'debit_kredit',
+            'id',
+            'kode_entry',
             'nama_akun',
             'kode_akun',
-            'kategori',
-            'sub_kategori',
-            'nominal',
+            'date',
+            'tipe_journal',
+            'value_transaksi'
+
         )

@@ -8,7 +8,7 @@ class StokUtama(models.Model):
     kode_produk = models.CharField(max_length=200,blank=True,null=True)
     jumlah_barang = models.IntegerField(null=False, default=0)
     gudang_cabang = models.CharField(max_length=200,blank=True,null=True)
-    detail_lokasi = models.CharField(max_length=200,blank=True,null=True,default='Kosong',choices=c.choice_detail_lokasi)
+    detail_lokasi = models.CharField(max_length=200,blank=True,null=True,default='Kosong',)
     harga_beli_weighted = models.IntegerField(null=False, default=0)
     divisi_kantor = models.CharField(max_length=200,blank=True,null=True)
     perusahaan_kantor = models.CharField(max_length=200,blank=True,null=True)
@@ -17,6 +17,7 @@ class StokUtama(models.Model):
 class KartuStok(models.Model):
     nama_produk = models.CharField(max_length=200,blank=True,null=True)
     kode_produk = models.CharField(max_length=200,blank=True,null=True)
+    tahun_produksi_produk = models.IntegerField(null=False, default=0)
     id_ks_transaksi = models.CharField(max_length=200,blank=True,null=True) #akan diambil dari id detail sjmasuk/keluar
     id_sj_transaksi = models.CharField(max_length=200,blank=True,null=True)
     jenis_transaksi = models.CharField(max_length=200,blank=True,null=True)
@@ -75,6 +76,7 @@ class AuditStok(models.Model):
     divisi_kantor = models.CharField(max_length=200,blank=True,null=True)
     perusahaan_kantor = models.CharField(max_length=200,blank=True,null=True)
     timestamp = models.DateTimeField(auto_now=False,blank=True,null=True)
+    user_id = models.CharField(max_length=200,blank=True,null=True)
 
 
 
@@ -85,6 +87,9 @@ class LokasiStok(models.Model):
     gudang_cabang = models.CharField(max_length=200,blank=True,null=True)
     divisi_kantor = models.CharField(max_length=200,blank=True,null=True)
     perusahaan_kantor = models.CharField(max_length=200,blank=True,null=True)
-    #Volume Lokasi
+    jenis_lokasi =  models.CharField(max_length=200,blank=True,null=True,default='Kosong',choices=c.choice_jenis_lokasi)
+    #AIAutoCount Ada dashbord yg menampilkan sudah aicount, tombol snapshot cek hasil snapshoot. api, 
+    #Volume Lokasi 20 Mei tambahkan dimensi lokasi
+    #Estimasi space misal 200 dalam dus 20 x 1 besar
 
     

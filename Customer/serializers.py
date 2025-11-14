@@ -1,10 +1,11 @@
 from rest_framework import serializers
-from .models import RegisteredCustomer, LoyaltyPointCustomer, DataPotensiCustomer, DailyRegisteredCustomerReport, KontrakOutletPromotion
+from .models import RegisteredCustomer, LoyaltyPointCustomer, DataPotensiCustomer, DailyRegisteredCustomerReport, KontrakOutletPromotion, DaftarPromosiBerjalan
 
 class RegisteredCustomerSerializer(serializers.ModelSerializer):
     class Meta:
         model = RegisteredCustomer
         fields = (
+            'id',
             'nama_outlet',
             'no_telepon_outlet',
             'no_telepon_lain_outlet',
@@ -78,14 +79,20 @@ class KontrakOutletPromotionSerializer(serializers.ModelSerializer):
     class Meta:
         model = KontrakOutletPromotion
         fields = (
+            'id',
             'nama_promo',
-            'tipe_promo',
-            'yang_dipromokan',
+            # 'tipe_promo',
+            # 'yang_dipromokan',
             'kode_outlet',
             'status_promo',
-            'deskripsi_promo',
+            # 'deskripsi_promo',
             'target_promo',
             'dimulai_tanggal',
             'berakhir_tanggal'
         )
+
+class DaftarPromosiBerjalanSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = DaftarPromosiBerjalan
+        fields = '__all__'
     
